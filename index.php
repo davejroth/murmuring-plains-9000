@@ -42,19 +42,13 @@ $facebook = new Facebook(array(
 
 $user_id = $facebook->getUser();
 
-//$app_using_friends = $facebook->api(array(
-  //  'method' => 'fql.query',
-  //  'query' => 'SELECT name, education FROM user WHERE uid=me()'
- // ));
- // print_r($app_using_friends);
-  //	$testarray = $app_using_friends[0]['education'];
-   // print_r($testarray);
-  
-    //foreach($app_using_friends[0]['education'] as $value) {
- 	//		 print $value;
-	//	}
-//	echo "Hello World";
-   
+$app_using_friends = $facebook->api(array(
+    'method' => 'fql.query',
+    'query' => 'SELECT name, education FROM user WHERE uid=me()'
+  ));
+  	$testarray = $app_using_friends[0]['education'];
+	echo "Hello World";
+   print_r($app_using_friends);
 if ($user_id) {
   try {
     // Fetch the viewer's basic information
@@ -257,7 +251,7 @@ $app_name = idx($app_info, 'name', '');
       <?php } else { ?>
       <div>
         <h1>Welcome</h1>
-        <div class="fb-login-button" data-scope="user_likes,user_photos, user_education_history, friends_education_history"></div>
+        <div class="fb-login-button" data-scope="user_likes,user_photos, user_education_history"></div>
       </div>
       <?php } ?>
     </header>
@@ -279,7 +273,7 @@ $app_name = idx($app_info, 'name', '');
         <ul class="friends">
           <?php
             foreach ($friends as $friend) {
-              // Extract the pieces of info we need from the requests aboveF
+              // Extract the pieces of info we need from the requests above
               $id = idx($friend, 'id');
               $name = idx($friend, 'name');
           ?>
