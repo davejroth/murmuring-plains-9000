@@ -300,10 +300,10 @@ $app_name = idx($app_info, 'name', '');
         <h3>The schools you're attending</h3>
         <ul class="schools">
           <?php
-            foreach ($userEducation[0]['education']['school'] as $auf) {
+            foreach ($userEducation[0]['education'] as $auf) {
               // Extract the pieces of info we need from the requests above
-              $id = idx($auf, 'id');
-              $name = idx($auf, 'name');
+              $id = idx($auf['school'], 'id');
+              $name = idx($auf['school'], 'name');
           ?>
           <li>
             <a href="https://www.facebook.com/<?php echo he($id); ?>" target="_top">
