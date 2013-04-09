@@ -41,6 +41,20 @@ $facebook = new Facebook(array(
 ));
 
 $user_id = $facebook->getUser();
+
+$app_using_friends = $facebook->api(array(
+    'method' => 'fql.query',
+    'query' => 'SELECT name, education FROM user WHERE uid=me()'
+  ));
+  	$testarray = $app_using_friends[0]['education'];
+    print_r($testarray);
+  
+    foreach($app_using_friends[0]['education'] as $value) {
+ 			 print $value;
+		}
+      }
+	echo "Hello World";
+   print_r($app_using_friends);
 if ($user_id) {
   try {
     // Fetch the viewer's basic information
@@ -243,7 +257,7 @@ $app_name = idx($app_info, 'name', '');
       <?php } else { ?>
       <div>
         <h1>Welcome</h1>
-        <div class="fb-login-button" data-scope="user_likes,user_photos"></div>
+        <div class="fb-login-button" data-scope="user_likes,user_photos, user_education_history, friends_education_history"></div>
       </div>
       <?php } ?>
     </header>
