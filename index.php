@@ -58,11 +58,12 @@ $app_using_friends = $facebook->api(array(
 			  echo $value['school']['name'];
 			  echo $value['type'];
 			  echo "<br>Hello World <br>";
-			  if($value['type'] = 'High School')
+			  if($value['type'] == 'High School')
 				{
+					echo "match!";
 					$highSchool = $value['school']['name'];
 				}
-			  elseif($value['type'] = 'College')
+			  elseif($value['type'] == 'College')
 				{
 					$college = $value['school']['name'];
 				}
