@@ -46,31 +46,31 @@ $userEducation = $facebook->api(array(
     'method' => 'fql.query',
     'query' => 'SELECT name, education FROM user WHERE uid=me()'
  ));
-	$highSchool = '';
-	$college = '';
-	echo "<pre>";
-	print_r($userEducation);
-	echo "</pre>";
-    foreach($userEducation[0]['education'] as $value) {
+	// $highSchool = '';
+	// $college = '';
+	// echo "<pre>";
+	// print_r($userEducation);
+	// echo "</pre>";
+    // foreach($userEducation[0]['education'] as $value) {
 
-			  if($value['type'] == 'High School')
-				{
-					$highSchool = $value['school']['name'];
-				}
-			  elseif($value['type'] == 'College')
-				{
-					$college = $value['school']['name'];
-				}
-		}
+			  // if($value['type'] == 'High School')
+				// {
+					// $highSchool = $value['school']['name'];
+				// }
+			  // elseif($value['type'] == 'College')
+				// {
+					// $college = $value['school']['name'];
+				// }
+		// }
 
-	echo "Your high school is: " . $highSchool . "<br>";
-	echo "Your college is: " . $college . "<br>";
+	// echo "Your high school is: " . $highSchool . "<br>";
+	// echo "Your college is: " . $college . "<br>";
 	
 
-	$userPages = $facebook->api(array(
-    'method' => 'fql.query',
-    'query' => 'SELECT name, genre FROM page WHERE page_id IN (SELECT page_id FROM page_fan WHERE uid = me())'
- ));
+	// $userPages = $facebook->api(array(
+    // 'method' => 'fql.query',
+    // 'query' => 'SELECT name, genre FROM page WHERE page_id IN (SELECT page_id FROM page_fan WHERE uid = me())'
+ // ));
  //Probably also want categories eventually
  
  // echo "You like: ";
