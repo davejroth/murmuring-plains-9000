@@ -68,8 +68,9 @@ $app_using_friends = $facebook->api(array(
 					$college = $value['school']['name'];
 				}
 		}
-	echo "Your high school is: " + $highSchool + "<br>";
-	echo "Your college is: " + $college + "<br>";
+	echo "Done!";
+	echo "Your high school is: " . $highSchool . "<br>";
+	echo "Your college is: " . $college . "<br>";
    
 if ($user_id) {
   try {
