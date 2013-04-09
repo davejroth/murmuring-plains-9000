@@ -52,7 +52,6 @@ $userEducation = $facebook->api(array(
 
 			  if($value['type'] == 'High School')
 				{
-					echo "match!";
 					$highSchool = $value['school']['name'];
 				}
 			  elseif($value['type'] == 'College')
@@ -67,11 +66,13 @@ $userEducation = $facebook->api(array(
 
 	$userPages = $facebook->api(array(
     'method' => 'fql.query',
-    'query' => 'SELECT name, categories, genre FROM page WHERE page_id IN (SELECT page_id FROM page_fan WHERE uid = me())'
+    'query' => 'SELECT name, genre FROM page WHERE page_id IN (SELECT page_id FROM page_fan WHERE uid = me())'
  ));
- 
+ //Probably also want categories eventually
  foreach($userPages as $value) {
 	print_r($value);
+	echo $value['name'];
+	echo "<br>";
  
  
  }
