@@ -44,20 +44,29 @@ $user_id = $facebook->getUser();
 
 $app_using_friends = $facebook->api(array(
     'method' => 'fql.query',
-    'query' => 'SELECT name, education, interests FROM user WHERE uid=me()'
+    'query' => 'SELECT name, education FROM user WHERE uid=me()'
  ));
- print_r($app_using_friends);
-  	$testarray = $app_using_friends[0]['education'];
+// print_r($app_using_friends);
+  //	$testarray = $app_using_friends[0]['education'];
    //echo "Test array";
    //
   //echo "<br>Hello World <br>";
+	$highSchool = '';
+	$college = '';
     foreach($app_using_friends[0]['education'] as $value) {
 			print_r($value);
 			  echo "<br>Hello World <br>";
- 			 print $value['school']['name'];
-			 print $value['school']['type'];
+			  if($value['type'] = 'High School')
+				{
+					$highSchool = $value['school']['name'];
+				}
+			  elseif($value['type'] = 'College')
+				{
+					$college = $value['school']['name'];
+				}
 		}
-	
+	echo "Your high school is: " + $highSchool + "<br>";
+	echo "Your college is: " + $college + "<br>";
    
 if ($user_id) {
   try {
