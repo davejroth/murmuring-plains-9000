@@ -47,12 +47,12 @@ $app_using_friends = $facebook->api(array(
     'query' => 'SELECT name, education FROM user WHERE uid=me()'
  ));
  
-  	//$testarray = $app_using_friends[0]['education'];
+  	$testarray = $app_using_friends[0]['education'];
    //echo "Test array";
-   //print_r($testarray);
+   print_r($testarray);
   echo "<br>Hello World <br>";
     foreach($app_using_friends[0]['education'] as $value) {
-			print $value;
+			print_r($value);
 			  echo "<br>Hello World <br>";
  			 print $value[0]['name'];
 		}
