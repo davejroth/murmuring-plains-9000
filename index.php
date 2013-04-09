@@ -48,6 +48,7 @@ $userEducation = $facebook->api(array(
  ));
 	$highSchool = '';
 	$college = '';
+	print_r($userEducation);
     foreach($userEducation[0]['education'] as $value) {
 
 			  if($value['type'] == 'High School')
