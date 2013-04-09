@@ -1,5 +1,5 @@
 <?php
-
+//SELECT genre FROM page WHERE page_id = (SELECT page_id FROM page_fan WHERE uid = me())
 /**
  * This sample app is provided to kickstart your experience using Facebook's
  * resources for developers.  This sample app provides examples of several
@@ -42,22 +42,14 @@ $facebook = new Facebook(array(
 
 $user_id = $facebook->getUser();
 
-$app_using_friends = $facebook->api(array(
+$userEducation = $facebook->api(array(
     'method' => 'fql.query',
     'query' => 'SELECT name, education FROM user WHERE uid=me()'
  ));
-// print_r($app_using_friends);
-  //	$testarray = $app_using_friends[0]['education'];
-   //echo "Test array";
-   //
-  //echo "<br>Hello World <br>";
 	$highSchool = '';
 	$college = '';
-    foreach($app_using_friends[0]['education'] as $value) {
-			//print_r($value);
-			  echo $value['school']['name'];
-			  echo $value['type'];
-			  echo "<br>Hello World <br>";
+    foreach($userEducation[0]['education'] as $value) {
+
 			  if($value['type'] == 'High School')
 				{
 					echo "match!";
@@ -68,9 +60,22 @@ $app_using_friends = $facebook->api(array(
 					$college = $value['school']['name'];
 				}
 		}
-	echo "Done!";
+
 	echo "Your high school is: " . $highSchool . "<br>";
 	echo "Your college is: " . $college . "<br>";
+	
+
+	$userPages = $facebook->api(array(
+    'method' => 'fql.query',
+    'query' => 'SELECT name, categories, genre FROM page WHERE page_id IN (SELECT page_id FROM page_fan WHERE uid = me())'
+ ));
+ 
+ foreach($userPages as $value) {
+	print_r($value);
+ 
+ 
+ }
+	
    
 if ($user_id) {
   try {
