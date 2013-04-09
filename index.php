@@ -52,8 +52,8 @@ $app_using_friends = $facebook->api(array(
    //print_r($testarray);
   //echo "<br>Hello World <br>";
     foreach($app_using_friends[0]['education'] as $value) {
-			//print_r($value);
-			  //echo "<br>Hello World <br>";
+			print_r($value);
+			  echo "<br>Hello World <br>";
  			 print $value['school']['name'];
 		}
 	
