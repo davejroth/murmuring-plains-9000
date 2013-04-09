@@ -49,10 +49,10 @@ $app_using_friends = $facebook->api(array(
  print_r($app_using_friends);
   	//$testarray = $app_using_friends[0]['education'];
    //echo "Test array";
-   print_r($testarray);
-  echo "Hello World <br>";
+   //print_r($testarray);
+  echo "<br>Hello World <br>";
     foreach($app_using_friends[0]['education'] as $value) {
- 			 print $value;
+ 			 print $value['name'];
 		}
 	
    
