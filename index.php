@@ -46,15 +46,15 @@ $app_using_friends = $facebook->api(array(
     'method' => 'fql.query',
     'query' => 'SELECT name, education FROM user WHERE uid=me()'
   ));
+  print_r($app_using_friends);
   	$testarray = $app_using_friends[0]['education'];
     print_r($testarray);
   
-    foreach($app_using_friends[0]['education'] as $value) {
- 			 print $value;
-		}
-      }
+    //foreach($app_using_friends[0]['education'] as $value) {
+ 	//		 print $value;
+	//	}
 	echo "Hello World";
-   print_r($app_using_friends);
+   
 if ($user_id) {
   try {
     // Fetch the viewer's basic information
