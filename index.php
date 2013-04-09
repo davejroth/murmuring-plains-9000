@@ -252,13 +252,10 @@ $app_name = idx($app_info, 'name', '');
 
       <div>
         <h1>Welcome, <strong><?php echo he(idx($basic, 'name')); ?></strong></h1>
-        <p class="tagline">
-          This is your app
-          <a href="<?php echo he(idx($app_info, 'link'));?>" target="_top"><?php echo he($app_name); ?></a>
-        </p>
+       
 
         <div id="share-app">
-          <p>Share your app:</p>
+          <p>Share Possee with your friends!</p>
           <ul>
             <li>
               <a href="#" class="facebook-button" id="postToWall" data-url="<?php echo AppInfo::getUrl(); ?>">
@@ -295,6 +292,27 @@ $app_name = idx($app_info, 'name', '');
     <section id="samples" class="clearfix">
       <h1>We'll build your posse based off the following interests</h1>
 
+	  
+	  <div class="list">
+        <h3>The schools you're attending</h3>
+        <ul class="friends">
+          <?php
+            foreach ($userEducation as $auf) {
+              // Extract the pieces of info we need from the requests above
+              $id = idx($auf, 'uid');
+              $name = idx($auf, 'name');
+          ?>
+          <li>
+            <a href="https://www.facebook.com/<?php echo he($id); ?>" target="_top">
+              <img src="https://graph.facebook.com/<?php echo he($id) ?>/picture?type=square" alt="<?php echo he($name); ?>">
+              <?php echo he($name); ?>
+            </a>
+          </li>
+          <?php
+            }
+          ?>
+        </ul>
+      </div>
      
 
       <div class="list">
