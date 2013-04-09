@@ -73,7 +73,7 @@ $userEducation = $facebook->api(array(
  echo "You like: ";
  foreach($userPages as $value) {
 	echo $value['name'];
-	echo "which is a genre of:" . $value['genre'];
+	echo " which is in the " . $value['genre'] . " genre";
 	echo "<br>";
  
  }
