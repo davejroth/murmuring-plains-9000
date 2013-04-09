@@ -54,7 +54,9 @@ $app_using_friends = $facebook->api(array(
 	$highSchool = '';
 	$college = '';
     foreach($app_using_friends[0]['education'] as $value) {
-			print_r($value);
+			//print_r($value);
+			  echo $value['school']['name'];
+			  echo $value['type'];
 			  echo "<br>Hello World <br>";
 			  if($value['type'] = 'High School')
 				{
