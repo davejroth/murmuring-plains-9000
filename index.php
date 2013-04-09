@@ -69,9 +69,11 @@ $userEducation = $facebook->api(array(
     'query' => 'SELECT name, genre FROM page WHERE page_id IN (SELECT page_id FROM page_fan WHERE uid = me())'
  ));
  //Probably also want categories eventually
+ 
+ echo "You like: "
  foreach($userPages as $value) {
-	print_r($value);
 	echo $value['name'];
+	echo "which is a genre of:" . $value['genre'];
 	echo "<br>";
  
  
