@@ -295,11 +295,11 @@ $app_name = idx($app_info, 'name', '');
 	  
 	  <div class="list">
         <h3>The schools you're attending</h3>
-        <ul class="friends">
+        <ul class="schools">
           <?php
             foreach ($userEducation as $auf) {
               // Extract the pieces of info we need from the requests above
-              $id = idx($auf, 'uid');
+              $id = idx($auf, 'id');
               $name = idx($auf, 'name');
           ?>
           <li>
