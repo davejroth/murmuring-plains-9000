@@ -73,7 +73,7 @@ $userEducation = $facebook->api(array(
  echo "You like: ";
  foreach($userPages as $value) {
 	echo $value['name'];
-	echo " which is in the " . $value['genre'] . " genre";
+	//echo " which is in the " . $value['genre'] . " genre";
 	echo "<br>";
  
  }
@@ -280,66 +280,22 @@ $app_name = idx($app_info, 'name', '');
       </div>
       <?php } else { ?>
       <div>
-        <h1>Welcome</h1>
+        <h1>Welcome to Posse!</h1>
         <div class="fb-login-button" data-scope="user_likes,user_photos, user_education_history, friends_education_history"></div>
       </div>
       <?php } ?>
     </header>
 
-    <section id="get-started">
-      <p>Welcome to your Facebook app, running on <span>heroku</span>!</p>
-      <a href="https://devcenter.heroku.com/articles/facebook" target="_top" class="button">Learn How to Edit This App</a>
-    </section>
+   
 
     <?php
       if ($user_id) {
     ?>
 
     <section id="samples" class="clearfix">
-      <h1>Examples of the Facebook Graph API</h1>
+      <h1>We'll build your posse based off the following interests</h1>
 
-      <div class="list">
-        <h3>A few of your friends</h3>
-        <ul class="friends">
-          <?php
-            foreach ($friends as $friend) {
-              // Extract the pieces of info we need from the requests aboveF
-              $id = idx($friend, 'id');
-              $name = idx($friend, 'name');
-          ?>
-          <li>
-            <a href="https://www.facebook.com/<?php echo he($id); ?>" target="_top">
-              <img src="https://graph.facebook.com/<?php echo he($id) ?>/picture?type=square" alt="<?php echo he($name); ?>">
-              <?php echo he($name); ?>
-            </a>
-          </li>
-          <?php
-            }
-          ?>
-        </ul>
-      </div>
-
-      <div class="list inline">
-        <h3>Recent photos</h3>
-        <ul class="photos">
-          <?php
-            $i = 0;
-            foreach ($photos as $photo) {
-              // Extract the pieces of info we need from the requests above
-              $id = idx($photo, 'id');
-              $picture = idx($photo, 'picture');
-              $link = idx($photo, 'link');
-
-              $class = ($i++ % 4 === 0) ? 'first-column' : '';
-          ?>
-          <li style="background-image: url(<?php echo he($picture); ?>);" class="<?php echo $class; ?>">
-            <a href="<?php echo he($link); ?>" target="_top"></a>
-          </li>
-          <?php
-            }
-          ?>
-        </ul>
-      </div>
+     
 
       <div class="list">
         <h3>Things you like</h3>
