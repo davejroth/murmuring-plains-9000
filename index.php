@@ -70,7 +70,7 @@ $userEducation = $facebook->api(array(
  ));
  //Probably also want categories eventually
  
- echo "You like: "
+ echo "You like: ";
  foreach($userPages as $value) {
 	echo $value['name'];
 	echo "which is a genre of:" . $value['genre'];
